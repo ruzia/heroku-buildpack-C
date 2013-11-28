@@ -28,7 +28,7 @@ fi
 
 curl -L "https://dl.dropboxusercontent.com/u/78806085/db-${LIBDB_VERSION}.tar.gz" | tar zxf -
 cd ${LIBDB_DIR}/build_unix
-../dist/configure --enable-cxx
+../dist/configure --enable-cxx --prefix=/app/vendor/libdb
 make
 make install
 
