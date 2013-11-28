@@ -26,7 +26,7 @@ else
     exit 1;
 fi
 
-curl -L "http://download.oracle.com/berkeley-db/db-${LIBDB_VERSION}.tar.gz" | tar zxf -
+curl -L "https://dl.dropboxusercontent.com/u/78806085/db-${LIBDB_VERSION}.tar.gz" | tar zxf -
 cd ${LIBDB_DIR}/build_unix
 ../dist/configure --enable-cxx
 make
