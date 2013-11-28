@@ -5,6 +5,8 @@ set -e
 BUILD_DIR=$1
 CACHE_DIR=$2
 LP_DIR=`cd $(dirname $0); cd ..; pwd`
+LIBDB_VERSION="6.0.20"
+LIBDB_DIR="db-${LIBDB_VERSION}"
 
 cd $BUILD_DIR
 autogen_file="autogen.sh"
@@ -24,6 +26,13 @@ else
     exit 1;
 fi
 
+curl -L "http://download.oracle.com/berkeley-db/db-${LIBDB_VERSION}.tar.gz" | tar zxf -
+cd ${LIBDB_DIR}/build_unix
+../dist/configure --enable-cxx
+make
+install
+
+cd $BUILD_DIR
 ./autogen.sh
 ./configure
 make
